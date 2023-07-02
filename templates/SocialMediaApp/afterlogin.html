@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    .left-navigation {
+      background-color: gray;
+      height: 100vh;
+      width: 200px;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .left-navigation ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .left-navigation ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <center><h1>REVERIE</h1></center><br>
+  
+  <!-- Left Navigation Bar -->
+  <div class="left-navigation">
+    <ul>
+      <h2>DASHBOARD</h2>
+      <li><a href="{% url 'profile' %}">Profile</a></li>
+      <li><a href="{% url 'create_post' %}">Create Post</a></li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+      <!-- Add more navigation options as needed -->
+    </ul>
+  </div>
+
+  <!-- Middle Content Area -->
+  <div class="content-area">
+    <!-- User Suggestion Panel -->
+    <div class="user-suggestions">
+      <h2>User Suggestions</h2>
+      <!-- Display the user suggestions here -->
+    </div>
+  </div>
+
+  <!-- Right Sidebar -->
+  <div class="right-sidebar">
+    <!-- Add any additional content for the right sidebar here -->
+  </div>
+
+  <!-- Add your JavaScript scripts here -->
+</body>
+</html>

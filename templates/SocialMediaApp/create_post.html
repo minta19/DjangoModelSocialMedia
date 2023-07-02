@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Post</title>
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px dotted #ccc;
+      background-color: #f9f9f9;
+    }
+
+    .form-container h2 {
+      text-align: center;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="file"],
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px dotted #ccc;
+      background-color: #fff;
+    }
+
+    .form-container button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Create Post</h2>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="id_caption">Caption:</label>
+      <input type="text" name="caption" id="id_caption" required>
+
+      <label for="id_image_or_video">Image or Video:</label>
+      <input type="file" name="image_or_video" id="id_image_or_video" required>
+
+      <button type="submit">Create</button>
+    </form>
+  </div>
+</body>
+</html>

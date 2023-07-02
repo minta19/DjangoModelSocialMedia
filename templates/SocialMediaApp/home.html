@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      background-image: url('{% static "images/pexels4.jpg" %}');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .container {
+      text-align: center;
+      background-color: #e5e5e5ee;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    
+    .navigation {
+      margin-top: 20px;
+    }
+    
+    .navigation a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #241313;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>REVERIES</h1>
+    <h3>Share Your DayDreams</h3>
+    <div class="navigation">
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+    </div>
+  </div>
+</body>
+</html>

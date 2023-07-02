@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <style>
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 50px;
+      background-color: #808080;
+    }
+    
+    .profile-picture {
+      position: relative;
+      text-align: center;
+    }
+    
+    .profile-picture img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+    
+    .edit-profile-picture {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    
+    .edit-profile-picture a {
+      color: blue;
+      text-decoration: underline;
+    }
+    
+    .follower-following {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    
+    .edit-profile {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .edit-profile a {
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile-picture">
+      <img src="{{ user_profile.Picture.url }}" alt="Profile Picture">
+      <div class="edit-profile-picture">
+        <a href="{% url 'edit_profile_picture' %}">Edit Picture</a>
+      </div>
+    </div>
+
+    <div class="follower-following">
+      <p>Followers: {{ user_followers }}</p>
+      <p>Following: {{ user_following }}</p>
+    </div>
+
+    <div class="edit-profile">
+      <a href="{% url 'edit_profile' user.username %}">Edit Profile</a>
+    </div>
+
+    <!-- User Profile Section -->
+    <div class="profile-section">
+      <h1>{{ user.username }}'s Profile</h1>
+      <p>Bio: {{ user_profile.Bio }}</p>
+      <p>Date of Birth: {{ user_profile.dob }}</p>
+      <p>Gender: {{ user_profile.get_Gender_display }}</p>
+      <p>Website: <a href="{{ user_profile.website }}">{{ user_profile.website }}</a></p>
+      <p>Location: {{ user_profile.Place }}</p>
+      <!-- Add more profile information here -->
+    </div>
+
+    <!-- User Posts Section -->
+    <div class="post-section">
+      <h2>Posts ({{ user_post_length }})</h2>
+      {% for post in user_posts %}
+        <div class="post">
+          <img src="{{ post.image_or_video.url }}" alt="Post Image" width="200">
+          <p>{{ post.caption }}</p>
+          <p>Likes: {{ post.no_of_likes }}</p>
+          <!-- Add more post information here -->
+        </div>
+      {% empty %}
+        <p>No posts yet.</p>
+      {% endfor %}
+    </div>
+
+    
+
+    <!-- Add more sections or customize the layout as needed -->
+
+  </div>
+
+</body>
+</html>
